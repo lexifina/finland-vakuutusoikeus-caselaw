@@ -1,0 +1,50 @@
+---
+identifier: "VakO 11.12.2002/4049:99"
+court: "Vakuutusoikeus"
+kind: "paatokset"
+docket: "4049:99"
+decided: "2002-12-11"
+keywords: "Työeläke , "
+source_url: "https://www.finlex.fi/fi/oikeuskaytanto/vakuutusoikeus/2002/4049-1999"
+source: "Finlex (www.finlex.fi), Ministry of Justice of Finland"
+licence: "CC BY 4.0"
+source_retrieved: "2026-11-07"
+---
+
+# VakO 11.12.2002/4049:99
+
+## Suomeksi
+
+A oli valittanut Kansaneläkelaitoksen vuonna 1996 antamasta työkyvyttömyyseläkettä ja yksilöllistä varhaiseläkettä koskevasta päätöksestä ja asia oli ratkaistu vakuutusoikeuden lainvoimaisella päätöksellä. Saatuaan Ruotsista ja Norjasta A:ta koskevat etuuspäätökset Kansaneläkelaitos oli neuvoston asetuksen n:o 574/72 mukaisena käsittelevänä laitoksena antanut eläkepäätösten yhteenvedon muutoksenhakuosoituksineen ja liittänyt siihen Kansaneläkelaitoksen vuonna 1996 antaman edellä mainitun päätöksen. A:n haettua muutosta viimeksi mainittuun päätökseen tarkastuslautakunta hylkäsi valituksen. A:n valituksen johdosta vakuutusoikeus katsoi, että Kansaneläkelaitoksen ei olisi tullut vuonna 1996 antaa A:n eläkeoikeudesta valituskelpoista päätöstä. Vasta eläkepäätösten yhteenvedon antamisen jälkeen A:n olisi tullut saada valitusoikeus eläkeasiassaan ja vasta tällöin olisivat myös Suomen oikeudenkäyntijärjestelmän mukaiset muutoksenhakusäännökset tulleet sovellettaviksi.
+Esitiedot
+Kansaneläkelaitos oli 2.9.1996 antamallaan päätöksellä hylännyt A:n eläkehakemuksen sekä työkyvyttömyyseläkkeen että yksilöllisen varhaiseläkkeen osalta. Kansaneläkelaitos katsoi, että A:n terveydentilasta saatujen selvitysten mukaan hänellä oli todettu erilaisia vaivoja ja sairauksia, jotka oli hoidettu lääkinnällisin ja leikkauksellisin toimenpitein. A:n toimintakyky voitiin katsoa tyydyttäväksi. Kansaneläkelaitos arvioi, että A kykeni terveydentilansa puolesta johonkin hänelle sopivaan työhön, josta hän voi saada kohtuullisen toimeentulon. Yksilölliseen varhaiseläkkeeseen A:lla ei ollut oikeutta, koska hänen työkykynsä ei ollut todettu alentuneen pysyvästi kansaneläkelain 22 a §:n säännöksen edellyttämässä määrin. Päätös oli liitetty Kansaneläkelaitoksen 30.1.1998 antamaan päätösten yhteenvetoon.
+A haki päätökseen muutosta tarkastuslautakunnalta.
+
+Tarkastuslautakunnan ratkaisu
+Tarkastuslautakunta hylkäsi valituksen.
+
+Tarkastuslautakunnan perustelut
+Kansaneläkelaitoksen päätöksessä mainitut perustelut. Valituksen vireillä ollessa esitetty uusi selvitys ei aiheuta muutosta työkyvyn arviointiin.
+
+Muutoksenhaku vakuutusoikeudessa
+A haki muutosta tarkastuslautakunnan päätökseen.
+
+Vakuutusoikeuden ratkaisu
+Tarkastuslautakunnan päätös kumottiin ja asia palautettiin Kansaneläkelaitokselle, jonka tuli antaa A:n oikeudesta työkyvyttömyyseläkkeeseen tai yksilölliseen varhaiseläkkeeseen uusi valituskelpoinen päätös. Asiassa tuli sen jälkeen menetellä tämän päätöksen osalta sosiaaliturvajärjestelmien soveltamisesta yhteisön alueella liikkuviin palkattuihin työntekijöihin, itsenäisiin ammatinharjoittajiin ja heidän perheenjäseniinsä annetun neuvoston asetuksen (ETY) N:o 1408/71 täytäntöönpanomenettelystä annetun neuvoston asetuksen (ETY) N:o 574/72 48 artiklassa säädetyllä tavalla.
+Vakuutusoikeuden 28.10.1998 antama päätös poistettiin.
+
+Vakuutusoikeuden perustelut
+Asiakirjoista ilmenee, että Suomen kansalainen A oli 2.2.1996 päivätyssä ja Kansaneläkelaitokselle 2.7.1996 saapuneessa eläkehakemuksessa hakenut työkyvyttömyyseläkettä. A oli lisäksi pyytänyt, että hänen eläkehakemuksensa käsitellään yksilöllisenä varhaiseläkehakemuksena, jos hänellä ei katsota olevan oikeutta työkyvyttömyyseläkkeeseen. A oli eläkehakemuksessaan vastannut myöntävästi kohtaan, jossa oli kysytty, onko hän asunut tai työskennellyt ulkomailla. Hakemukseen oli oheistettu 19.1.1996 päivätty asumista ja työskentelyä ulkomailla koskeva liite U, jossa A oli ilmoittanut asuneensa Ruotsissa ajalla 1.3.1960 - 30.6.1961 ja Norjassa ajalla 5.7.1976 - 1.9.1987 sekä työskennelleensä mainituissa maissa. Kansaneläkelaitos oli merkinnyt A:n eläkehakemukseen, että kysymyksessä on ETA-asia.
+Kansaneläkelaitos oli 2.9.1996 antamallaan päätöksellä hylännyt A:n eläkehakemuksen sekä työkyvyttömyyseläkkeen että yksilöllisen varhaiseläkkeen osalta. A:n haettua päätökseen muutosta tarkastuslautakunta oli 30.4.1997 antamallaan päätöksellä hylännyt valituksen. Vakuutusoikeus, jolta A oli hakenut muutosta tarkastuslautakunnan päätöksen, oli 28.10.1998 antamallaan päätöksellä hylännyt valituksen.
+Saatuaan Ruotsista ja Norjasta A:ta koskevat etuuspäätökset Kansaneläkelaitos oli sosiaaliturvajärjestelmien soveltamisesta yhteisön alueella liikkuviin palkattuihin työntekijöihin, itsenäisiin ammatinharjoittajiin ja heidän perheenjäseniinsä annetun neuvoston asetuksen (ETY) N:o 1408/71 (jäljempänä asetus 1408/71) täytäntöönpanomenettelystä annetun neuvoston asetuksen (ETY) N:o 574/72 (jäljempänä asetus 574/72) 41 artiklan mukaisena käsittelevänä laitoksena antanut 30.1.1998 saman asetuksen 48 artiklan mukaisen päätösten yhteenvedon, johon oli muun ohessa liitetty Kansaneläkelaitoksen 2.9.1996 antama päätös. A:n haettua päätösten yhteenvetoon liitetyn muutoksenhakuohjeen mukaisesti tarkastuslautakunnalta muutosta 2.9.1996 annettuun päätökseen tarkastuslautakunta oli 9.2.1999 antamallaan päätöksellä hylännyt valituksen. A on hakenut vakuutusoikeudelta muutosta tarkastuslautakunnan päätökseen.
+Edellä esitetyn johdosta vakuutusoikeus toteaa, että Euroopan unionissa liikkuvien henkilöiden sosiaaliturvaan liittyvistä oikeuksista säädetään asetuksessa 1408/71. Tämän asetuksen täytäntöönpanomenettelystä säädetään asetuksessa 574/72. Nämä asetukset tulivat 1.1.1994 lukien osaksi Suomen oikeusjärjestelmää Euroopan talousalueesta tehdyn sopimuksen (jäljempänä ETA-sopimus) eräiden määräysten hyväksymisestä ja sopimuksen soveltamisesta annetun lain säätämisellä. Asetukset olivat siten vuonna 1996 Euroopan yhteisön oikeuden (jäljempänä EY-oikeus) osana Suomessa välittömästi sovellettavaa oikeutta. EY-oikeuteen sisältyy niin sanottu ensisijaisuuden periaate, jonka mukaan EY-oikeuden säännösten kanssa ristiriidassa oleva kansallinen säännös saa väistyä.
+Asetuksen 574/72 41 artiklan perusteella etuutta koskevat hakemukset käsitellään laitoksessa, johon ne on lähetetty tai toimitettu edelleen asetuksen 36 artiklan säännösten mukaisesti. Tätä laitosta kutsutaan käsitteleväksi laitokseksi ja se on yleensä eläkkeenhakijan asuinvaltion eläkelaitos. Eläkehakemukset käsitellään sen jälkeen kaikissa niissä Euroopan unionin jäsenvaltioissa ja muissa ETA-sopimukseen liittyneissä maissa, joissa eläkkeenhakijalle on kertynyt vakuutuskausia. Käsittelevä laitos koordinoi tätä käsittelyä ja sen tulee siksi eläkehakemukset saatuaan antaa niistä viipymättä erityisellä lomakkeella tieto kaikille kyseisille laitoksille niin, että hakemuksia voidaan käsitellä samanaikaisesti ja viivytyksettä kaikissa näissä laitoksissa.
+Saman asetuksen 45 artiklan 1 kohdan mukaan etuus, johon hakijalla on oikeus, voidaan maksaa välittömästi väliaikaisesti. Artiklan 4 kohdassa on säädetty, että laitoksen, jonka velvollisuutena on maksaa etuus, tulee ilmoittaa viipymättä asiasta hakijalle ja kiinnittää hänen huomiotaan nimenomaisesti toimenpiteen väliaikaiseen luonteeseen ja seikkaan, että siitä ei voi hakea muutosta.
+Asetuksen 574/72 48 artiklan mukaan lopulliset päätökset, jotka jokainen kyseessä oleva laitos on tehnyt, toimitetaan edelleen käsittelevälle laitokselle. Jokaisessa päätöksessä on eriteltävä oikeussuojakeinot ja määräajat, jotka kyseisessä lainsäädännössä on säädetty muutoksenhaulle. Saadessaan kaikki tällaiset päätökset käsittelevä laitos antaa ne tiedoksi hakijalle tämän omalla kielellä yhteenvetona esitetyssä selvityksessä, johon mainitut päätökset liitetään. Artiklan mukaan määräajat muutoksenhakua varten alkavat kulua vasta päivästä, jolloin hakija saa yhteenvetona esitetyn selvityksen. Samalla kun käsitelevä laitos toimittaa hakijalle edellä mainitun yhteenvetona esitetyn selvityksen, toimittaa se jäljennöksen jokaiselle kyseeseen tulevalle laitokselle liittäen siihen mukaan jäljennöksen muiden laitosten päätöksistä.
+Se, että Kansaneläkelaitos on liittänyt 30.1.1998 antamaansa päätösten yhteenvetoon 2.6.1996 antamansa päätöksen, on sinänsä ollut jo Suomenkin oikeudenkäyntijärjestelmän vastaista, sillä mainittua päätöstä ei ollut enää olemassa tarkastuslautakunnan päätöksen tultua valitusmenettelyn kautta 30.4.1997 sen tilalle ja valitusprosessin tarkastuslautakunnan päätöksestä ollessa edelleen kesken vakuutusoikeudessa. Tämän johdosta tarkastuslautakunnan olisi Suomen muutoksenhakusäännöksiä soveltaessaan tullut jättää A:n valitus tutkimatta. Tilanne olisi ollut sama, vaikka A ei olisi aiemmin valittanutkaan 2.6.1996 annetusta päätöksestä, sillä Suomen lainsäädäntö ei tunne mahdollisuutta saada valittaa uudelleen lainvoiman jo kerran saaneesta päätöksestä.
+Koska A kuitenkin olisi asetuksen 574/72 48 artiklan perusteella tullut saada oikeus valittaa Kansaneläkelaitoksen lopullisesta eläkepäätöksestä nimenomaisesti vasta hänen saatuaan Kansaneläkelaitokselta sanotun artiklan mukaisen päätösten yhteenvedon (lomake E 211) ja siihen liitetyn valituskelpoisen päätöksen sekä ohjeen muutoksenhausta ja määräajoista (lomake E 212), olisi tarkastuslautakunnan tullut 9.2.1999 antamallaan päätöksellä ensisijaisesti EY-oikeutta soveltaen palauttaa asia Kansaneläkelaitokselle sillä perusteella, että A:n eläkeasiassa oli menetelty 48 artiklassa säädetyn menettelyn vastaisesti.
+Edellä kerrotuista syistä tarkastuslautakunnan valituksenalainen päätös kumotaan. Kansaneläkelaitoksen tulee antaa A:lle hänen oikeudestaan työkyvyttömyyseläkkeeseen tai yksilölliseen varhaiseläkkeeseen uusi valituskelpoinen päätös, minkä jälkeen asiassa tulee tämän päätöksen osalta menetellä asetuksen 574/72 48 artiklassa säädetyllä tavalla.
+Vakuutusoikeuden 28.10.1998 antama päätös poistetaan, koska se pohjautuu Kansaneläkelaitoksen 2.9.1996 antamaan päätökseen, joka on syntynyt asetuksen 574/72 48 artiklan vastaisessa menettelyssä.
+
+Jaosto
+VII
