@@ -42,6 +42,9 @@ ABBR = {
     'ETL': '805/2011', 'EsitutkintaL': '805/2011', 'ROL': '689/1997', 'YhdistysL': '503/1989', 'SäätiöL': '487/2015',
 }
 aliases = {k: by_act[v] for k, v in ABBR.items() if v in by_act and by_act[v] in arts}
+# "perustuslain 21 §": the Constitution's title is "Suomen perustuslaki", so its genitive needs its own entry.
+if by_act.get('731/1999') in arts:
+    by_title.setdefault('perustuslaki', by_act['731/1999'])
 # "<Stem>L" forms courts write from a one-word act name ending in -laki ("TuotevastuuL" for tuotevastuulaki)
 for r in acts:
     t = r['title'].strip()

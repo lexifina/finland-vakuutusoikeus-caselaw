@@ -89,6 +89,10 @@ def main():
                    'year': m.group(3) if m else '', 'number': m.group(4) if m else '', 'meta': flight.meta(p.fl),
                    'title': (re.search(r'"h2",null,\{"lang":"fi","children":"([^"]+)"', p.fl) or [None, None])[1],
                    'text_fi': p.text('fi'), 'text_sv': p.text('sv')}
+            # the day the page is headed with ("KKO:2025:31 | 24.3.2025 | ..."): 1.1.<year> when Finlex has the year only
+            pd = re.search(r'<title>[^|<]*\|\s*(\d{1,2})\.(\d{1,2})\.(\d{4})\s*\|', html)
+            if pd:
+                rec['page_date'] = f'{pd.group(3)}-{int(pd.group(2)):02d}-{int(pd.group(1)):02d}'
             line = json.dumps(rec, ensure_ascii=False) + '\n'
             with wlock:
                 writers[t].write(line)

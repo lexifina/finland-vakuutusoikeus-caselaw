@@ -98,10 +98,54 @@ class Resolver:
 
 
 def decision_day(r: dict) -> str:
-    return (r['meta'].get('Antopäivä') or r['meta'].get('Avgörandedatum') or '')[:10]
+    day = (r['meta'].get('Antopäivä') or r['meta'].get('Avgörandedatum') or '')[:10]
+    # A year Finlex mistyped ("1008-02-19" for TT:2008-17) takes the year of the decision's own URL and number.
+    if re.match(r'^\d{4}-', day) and day[:4] < '1900' and re.fullmatch(r'(19|20)\d{2}', str(r.get('year') or '')):
+        day = f"{r['year']}{day[4:]}"
+    return day
 
 
-def render(r: dict, day: str, group: str, res: Resolver, ver: dict, retrieved: str, extra: tuple = ()):
+def dating(r: dict) -> tuple[str, str, tuple]:
+    """(In-force day, Decided value, extra trailers) for one decision.
+    - Antopäivä (the decision day) when Finlex gives it.
+    - Else the day finlex.fi heads the decision page with (page_date, read from its <title> by fetch.py), unless it is
+      the 1 January placeholder Finlex shows for a year-only record (KKO:2025:29 and :31 give no Antopäivä but a day).
+    - Else the year only (Tapausvuosi, the year in the precedent's identifier): 6,864 KKO precedents of 1926-2004
+      (KKO:1931-II-577 ...). Finlex gives no day for them; the tools read In-force as a day, so they are dated
+      31 December of their year, the last day of the year they were given (never before the decision existed), with
+      Decided: <year> and an In-force-basis: trailer saying so; Presented: is the day the case was presented
+      (Esittelypäivä) where Finlex gives it, the decision being given that day or later."""
+    day = decision_day(r)
+    if ISO.match(day or ''):
+        return day, day, ()
+    pd = r.get('page_date') or ''
+    if ISO.match(pd) and pd[5:] != '01-01':
+        return pd, pd, ('In-force-basis: the day finlex.fi heads the decision page with; its metadata gives no Antopäivä',)
+    y = str(r['meta'].get('Tapausvuosi') or r.get('year') or '')
+    if not re.fullmatch(r'(19|20)\d{2}', y):
+        return '', '', ()
+    tr = [f'In-force-basis: year only: Finlex gives the year {y} but not the day (its page shows the placeholder 1.1.{y}); '
+          f'dated 31 December {y}, the last day of the year the decision was given']
+    if ISO.match(r['meta'].get('Esittelypäivä') or ''):
+        tr.append(f"Presented: {r['meta']['Esittelypäivä']} (Esittelypäivä; the decision was given that day or later)")
+    return f'{y}-12-31', y, tuple(tr)
+
+
+def year_note(n: int) -> str:
+    """The README paragraph on decisions dated by year only (empty when there are none)."""
+    if not n:
+        return ''
+    return f"""
+Of these, {n:,} (the Supreme Court's precedents of 1926-2004 such as KKO:1931-II-577) have a year but no day on
+Finlex: its page shows the placeholder 1.1.<year>. Each is dated 31 December of its year, the last day of the year it
+was given, so the tools never show it before it existed: `In-force: <year>-12-31`, `Decided: <year>` and an
+`In-force-basis:` trailer saying so (`in_force` and `in_force_basis` in the file's front matter), with `Presented:` (the
+Esittelypäivä) where Finlex gives it. Those before 1970 are committed on 1970-01-01, one second apart, as git dates
+start there; `In-force:` holds the date. List them with `git log --grep='^In-force-basis: year only' --format='%(trailers:key=Decided,valueonly) %an'`.
+"""
+
+
+def render(r: dict, day: str, group: str, res: Resolver, ver: dict, retrieved: str, extra: tuple = (), decided: str = ''):
     court = NAMES.get(group, (group, group))[0]
     ident = (r.get('title') or '').strip() or f"{r['kind_slug']} {r['year']}/{r['number']}"
     ecli = r['meta'].get('ECLI-tunnus')
@@ -109,7 +153,8 @@ def render(r: dict, day: str, group: str, res: Resolver, ver: dict, retrieved: s
     slug = re.sub(r'[^A-Za-z0-9._-]+', '-', ident).strip('-')
     path = f"decisions/{r['kind_slug']}/{day[:4]}/{slug}.md"
     cites = res.find(r['text_fi']) + res.find(r.get('text_sv') or '')
-    fm = {'identifier': ident, 'ecli': ecli, 'court': court, 'kind': r['kind_slug'], 'docket': docket, 'decided': day,
+    decided = decided or day
+    fm = {'identifier': ident, 'ecli': ecli, 'court': court, 'kind': r['kind_slug'], 'docket': docket, 'decided': decided,
           'volume': r['meta'].get('Taltio'), 'keywords': r['meta'].get('Asiasanat'), 'source_url': r['url'],
           'source': 'Finlex (www.finlex.fi), Ministry of Justice of Finland', 'licence': 'CC BY 4.0', 'source_retrieved': retrieved}
     lines = ['---'] + [f'{k}: {json.dumps(v, ensure_ascii=False)}' for k, v in fm.items() if v not in (None, '')]
@@ -123,7 +168,13 @@ def render(r: dict, day: str, group: str, res: Resolver, ver: dict, retrieved: s
     author = f'{court} {ident}'.replace('<', '').replace('>', '')
     email = re.sub(r'[^a-z0-9]+', '-', ident.lower()).strip('-')[:60] + '@caselaw.invalid'
     kind = 'correction' if any(t.startswith('Corrected:') for t in extra) else 'court'
-    tr = [f'Kind: {kind}', f'In-force: {day}', f'Decided: {day}', f'Court: {court}', f'Docket: {docket or ident}']
+    if decided != day:  # a year-only decision: what its In-force day stands for, in the file as in the commit
+        basis = next((t.split(':', 1)[1].strip() for t in extra if t.startswith('In-force-basis:')), '')
+        lines.insert(lines.index('---', 1), f'in_force: "{day}"')
+        if basis:
+            lines.insert(lines.index('---', 1), f'in_force_basis: {json.dumps(basis, ensure_ascii=False)}')
+        body = '\n'.join(lines).encode('utf-8')
+    tr = [f'Kind: {kind}', f'In-force: {day}', f'Decided: {decided}', f'Court: {court}', f'Docket: {docket or ident}']
     if ecli:
         tr.append(f'ECLI: {ecli}')
     tr.append(f"Source: {r['url']}")
@@ -189,7 +240,7 @@ def main() -> None:
     res = Resolver(json.load(open(HERE / 'fi_index.json', encoding='utf-8')))
     ver = versions(Path(a.law_repo), ref='main')
     recs = load(Path(a.fetched), a.group)
-    recs.sort(key=lambda r: (decision_day(r) or '9999', r['kind_slug'], r['year'], r['number'].zfill(6)))
+    recs.sort(key=lambda r: (dating(r)[0] or '9999', r['kind_slug'], r['year'], r['number'].zfill(6)))
     print(f'{a.group}: {len(recs)} decisions', file=sys.stderr, flush=True)
     if out.exists() and any(out.iterdir()):
         raise SystemExit(f'{out} is not empty')
@@ -199,16 +250,17 @@ def main() -> None:
                           stdin=subprocess.PIPE)
     w = fi.stdin.write
     overlay, dindex, undated, checkpoints = {}, [], [], []
-    mark = raw = clamp = 0
+    mark = raw = clamp = yearonly = 0
     first = None
     used = set()
     for r in recs:
-        day = decision_day(r)
+        day, decided, extra = dating(r)
         if not ISO.match(day or '') or day > a.today:
             undated.append(r)
             continue
         first = first or day
-        path, body, author, email, msg, rows, refs = render(r, day, a.group, res, ver, a.retrieved)
+        yearonly += decided != day
+        path, body, author, email, msg, rows, refs = render(r, day, a.group, res, ver, a.retrieved, extra, decided)
         if path in used:
             path = path[:-3] + '-' + re.sub(r'\W+', '', r['number']) + '.md'
         used.add(path)
@@ -248,7 +300,9 @@ def main() -> None:
         'language': 'fi', 'kind': 'judgments', 'history': 'in-force',
         'coverage': f'{mark} decisions published on finlex.fi, one file and one commit each (Finnish text, and Swedish where published), dated the day given; {n_refs} citations of law linked to finland-law.',
         'history_from': first, 'record_to': a.retrieved, 'checked_on': a.today,
-        'record_note': 'Court decisions, not laws: every commit is Kind: court. In-force is the day the decision was given.',
+        'record_note': 'Court decisions, not laws: every commit is Kind: court. In-force is the day the decision was given'
+                       + (f'; for {yearonly} decisions Finlex gives the year only, and In-force is 31 December of that year '
+                          '(In-force-basis: year only ..., Decided: <year>).' if yearonly else '.'),
         'in_force_trailer': 'In-force', 'correction_trailer': 'Corrected', 'dates': {'commit': 'decided', 'time': '12:00 Europe/Helsinki'},
         'source': {'publisher': 'Finlex, Ministry of Justice of Finland', 'dataset': 'finlex.fi case law (oikeuskäytäntö)',
                    'url': 'https://www.finlex.fi/fi/oikeuskaytanto', 'updated': a.retrieved},
@@ -261,7 +315,7 @@ Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git h
 
 Every decision of {where} published on finlex.fi, as a git history: one file per decision, one commit per decision,
 dated the day it was given. {mark:,} decisions from {first} to {a.retrieved}.
-
+{year_note(yearonly)}
 ## Source and licence
 
 {cr}.
@@ -312,7 +366,7 @@ python tools/build.py {a.group} <fetched> <empty folder> --today {a.today} --ret
     fi.stdin.close()
     if fi.wait():
         raise SystemExit('fast-import failed')
-    print(json.dumps({'group': a.group, 'decisions': mark, 'undated': len(undated), 'overlay_rows': n_refs,
+    print(json.dumps({'group': a.group, 'decisions': mark, 'year_only': yearonly, 'undated': len(undated), 'overlay_rows': n_refs,
                       'regex_timeouts': res.timeouts, 'raw_gb': round(raw / 1e9, 3)}), flush=True)
 
 
