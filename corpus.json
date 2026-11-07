@@ -1,0 +1,32 @@
+{
+  "corpus": "fi/vakuutusoikeus/caselaw",
+  "path": "finland/vakuutusoikeus/caselaw",
+  "name": "Case law: Finland, the Insurance Court (vakuutusoikeus)",
+  "label": "Finland case law (Vakuutusoikeus)",
+  "language": "fi",
+  "kind": "judgments",
+  "history": "in-force",
+  "coverage": "1740 decisions published on finlex.fi, one file and one commit each (Finnish text, and Swedish where published), dated the day given; 269 citations of law linked to finland-law.",
+  "history_from": "1957-11-26",
+  "record_to": "2026-11-07",
+  "checked_on": "2026-11-07",
+  "record_note": "Court decisions, not laws: every commit is Kind: court. In-force is the day the decision was given.",
+  "in_force_trailer": "In-force",
+  "correction_trailer": "Corrected",
+  "dates": {
+    "commit": "decided",
+    "time": "12:00 Europe/Helsinki"
+  },
+  "source": {
+    "publisher": "Finlex, Ministry of Justice of Finland",
+    "dataset": "finlex.fi case law (oikeuskäytäntö)",
+    "url": "https://www.finlex.fi/fi/oikeuskaytanto",
+    "updated": "2026-11-07"
+  },
+  "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "credit": "Source: Finlex (www.finlex.fi), Ministry of Justice of Finland; Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/; retrieved 2026-11-07",
+  "overlay": {
+    "path": "judgments/finland/national/acts/<file>.jsonl",
+    "law_corpus": "finland/national/acts"
+  }
+}
